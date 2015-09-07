@@ -20,15 +20,17 @@ trait PredictionRouter extends HttpService with PredictionRouterDoc {
 
   val predictionOperations: Route = predictionEnqueue
 
-  override def predictionEnqueue: Route = path("tweet/prediction") {
-    post {
-      authenticate(basicUserAuthenticator) { authInfo =>
-        entity(as[PredictionDto]) { prediction =>
-          respondWithMediaType(`application/json`) {
-            onComplete(predictionService.enqueuePrediction(prediction)) {
-              case Success(Some(processingId)) => complete(Created, processingId.toString) //TODO JSON format
-              case Success(None) => complete(NotAcceptable, "Invalid prediction")
-              case Failure(ex) => complete(InternalServerError, s"An error occurred: ${ex.getMessage}")
+  override def predictionEnqueue: Route = pathPrefix("tweet") {
+    path("prediction") {
+      post {
+        authenticate(basicUserAuthenticator) { authInfo =>
+          entity(as[PredictionDto]) { prediction =>
+            respondWithMediaType(`application/json`) {
+              onComplete(predictionService.enqueuePrediction(prediction)) {
+                case Success(Some(processingId)) => complete(Created, processingId.toString) //TODO JSON format
+                case Success(None) => complete(NotAcceptable, "Invalid prediction")
+                case Failure(ex) => complete(InternalServerError, s"An error occurred: ${ex.getMessage}")
+              }
             }
           }
         }
