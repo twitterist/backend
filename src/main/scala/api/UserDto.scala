@@ -1,10 +1,9 @@
-package router
+package api
 
 import com.wordnik.swagger.annotations.{ ApiModel, ApiModelProperty }
 import spray.json.DefaultJsonProtocol
 
 import scala.annotation.meta.field
-
 
 @ApiModel(description = "A User creation entity")
 case class UserDto(

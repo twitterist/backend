@@ -1,9 +1,9 @@
-package router
+package api
 
 import akka.actor.{ Actor, ActorLogging }
 import com.gettyimages.spray.swagger.SwaggerHttpService
 import com.wordnik.swagger.model.ApiInfo
-import service.UserService
+import service.{PredictionService, UserService}
 
 import scala.reflect.runtime.universe._
 
@@ -11,10 +11,13 @@ import scala.reflect.runtime.universe._
  *
  * @param userServiceImpl The user service needed for auth
  */
-class ApiRouterActor(userServiceImpl: UserService) extends Actor with UserRouter with ActorLogging with Authenticator {
+class ApiRouterActor(userServiceImpl: UserService, predictionServiceImpl: PredictionService) extends Actor with UserRouter with PredictionRouter with ActorLogging with Authenticator {
 
-  /** UserService ref for [[router.Authenticator]] */
+  /** UserService ref for [[api.Authenticator]] */
   override val userService = userServiceImpl
+
+  /** [[PredictionService]] injection ref. for [[PredictionRouter]] */
+  override val predictionService = predictionServiceImpl
 
   /** SwaggerHttpService instance used for API doc
     *
@@ -22,7 +25,7 @@ class ApiRouterActor(userServiceImpl: UserService) extends Actor with UserRouter
     * @see http://swagger.io/
     */
   val swaggerService = new SwaggerHttpService {
-    override def apiTypes = Seq(typeOf[UserRouterDoc])
+    override def apiTypes = Seq(typeOf[UserRouterDoc], typeOf[PredictionRouterDoc])
     override def apiVersion = "1.0"
     override def baseUrl = "/"
     override def docsPath = "api-docs-json"
@@ -42,6 +45,7 @@ class ApiRouterActor(userServiceImpl: UserService) extends Actor with UserRouter
   /** Actors main receive used for routing */
   def receive = runRoute(
     userOperations ~
+    predictionOperations ~
     swaggerService.routes ~
     get {
       pathPrefix("") {

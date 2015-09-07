@@ -1,4 +1,4 @@
-package router
+package api
 
 import model.{AuthInfo, User, UserPassword}
 import service.UserService

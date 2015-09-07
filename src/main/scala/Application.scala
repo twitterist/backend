@@ -2,8 +2,8 @@ import akka.actor.{ ActorRef, ActorSystem, Props }
 import akka.io.IO
 import akka.pattern.ask
 import akka.util.Timeout
-import router.ApiRouterActor
-import service.UserService
+import api.ApiRouterActor
+import service.{PredictionService, UserService}
 import spray.can.Http
 import utils.Config._
 
@@ -15,10 +15,11 @@ object Application extends App {
   /** Main actor system instance */
   implicit val system = ActorSystem(app.systemName)
 
-  /** Main actor instance configured as spray router ([[router.ApiRouterActor]]) */
+  /** Main actor instance configured as spray router ([[api.ApiRouterActor]]) */
   val apiRouterActor: ActorRef = system.actorOf(Props(
     classOf[ApiRouterActor],
-    UserService
+    UserService,
+    PredictionService
   ), app.userServiceName)
 
   /** Defines application timeout */

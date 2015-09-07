@@ -1,4 +1,4 @@
-package router
+package api
 
 import model.User
 import org.specs2.mock._
