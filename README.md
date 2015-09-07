@@ -7,9 +7,20 @@ and run predictions.
 Usage
 -----
 
-Check out the repository from git and run ```./activator run```. To use the project in production, run 
-```./activator dist``` and deploy the target artifact to server. There is an interactive API-documentation in-app. 
-Just open [localhost:8080](http://localhost:8080) in your browser.
+Check out the repository from git and use activator to run the app:
+
+```
+./activator clean run
+```
+
+There is an interactive API-documentation in-app. Just open [localhost:8080](http://localhost:8080) in your browser.
+
+
+To use the project in production, use the dist command to create production artifact: 
+
+```bash
+./activator dist
+```
 
 Tests
 -----
@@ -30,4 +41,4 @@ for your PR's. Otherwise, we cannot accept it.
 License
 -------
 
-This project is licensed under MIT. See [LICENSE] for details.
+This project is licensed under MIT. See [LICENSE](LICENSE) for details.
