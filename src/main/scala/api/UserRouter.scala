@@ -1,5 +1,6 @@
 package api
 
+import api.dto.UserDto
 import com.wordnik.swagger.annotations._
 import model.User
 import service.UserService
@@ -112,7 +113,7 @@ trait UserRouterDoc {
 
   @ApiOperation(value = "Add a new user to the system", httpMethod = "POST", consumes = "application/json")
   @ApiImplicitParams(Array(
-    new ApiImplicitParam(name = "body", value = "User object to be added", required = true, dataType = "api.UserDto", paramType = "body")
+    new ApiImplicitParam(name = "body", value = "User object to be added", required = true, dataType = "api.dto.UserDto", paramType = "body")
   ))
   @ApiResponses(Array(
     new ApiResponse(code = 405, message = "Invalid user"),

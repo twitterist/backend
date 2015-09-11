@@ -5,7 +5,6 @@ import spray.json.DefaultJsonProtocol
 
 import scala.annotation.meta.field
 
-
 @ApiModel(description = "A User entity")
 case class User(
   @(ApiModelProperty @field)(value = "unique identifier for the user")

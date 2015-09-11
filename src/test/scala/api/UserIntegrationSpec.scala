@@ -1,5 +1,6 @@
 package api
 
+import api.dto.UserDto
 import model.User
 import org.specs2.mock._
 import org.specs2.mutable.Specification

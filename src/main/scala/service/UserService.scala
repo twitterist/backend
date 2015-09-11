@@ -1,8 +1,8 @@
 package service
 
+import api.dto.UserDto
 import dao.{ PasswordDao, UserDao }
 import model.{ User, UserPassword }
-import api.UserDto
 import utils.DatabaseConfig._
 
 import scala.concurrent.ExecutionContext.Implicits.global

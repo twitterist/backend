@@ -1,6 +1,6 @@
-package api
+package api.dto
 
-import com.wordnik.swagger.annotations.{ ApiModel, ApiModelProperty }
+import com.wordnik.swagger.annotations.{ApiModel, ApiModelProperty}
 import spray.json.DefaultJsonProtocol
 
 import scala.annotation.meta.field
