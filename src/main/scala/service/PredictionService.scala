@@ -5,10 +5,12 @@ import model.PredictionResult
 import scala.concurrent.Future
 import scala.concurrent.ExecutionContext.Implicits.global
 
+/** Service to schedule and process predictions against the ML stack */
 trait PredictionService {
-  /** Enqueues a tweet [[PredictionDto]] for processing and returns a reference id as [[EnqueuedPredictionStatusDto]] */
+  /** Enqueues a tweet [[api.dto.PredictionDto]] for processing and returns a reference id as [[api.dto.EnqueuedPredictionStatusDto]] */
   def enqueue(dto: PredictionDto, requestUri: String): Future[Option[EnqueuedPredictionStatusDto]]
 
+  /** Returns the prediction status / result of an enqueued tweet by processingId */
   def status(processingId: BigInt): Future[Option[PredictionResult]]
 }
 

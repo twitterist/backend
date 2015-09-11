@@ -16,7 +16,7 @@ class ApiRouterActor(userServiceImpl: UserService, predictionServiceImpl: Predic
   /** UserService ref for [[api.Authenticator]] */
   override val userService = userServiceImpl
 
-  /** [[PredictionService]] injection ref. for [[PredictionRouter]] */
+  /** [[service.PredictionService]] injection ref. for [[PredictionRouter]] */
   override val predictionService = predictionServiceImpl
 
   /** SwaggerHttpService instance used for API doc
@@ -40,6 +40,7 @@ class ApiRouterActor(userServiceImpl: UserService, predictionServiceImpl: Predic
     ))
   }
 
+  /** Reference for the context */
   override def actorRefFactory = context
 
   /** Actors main receive used for routing */

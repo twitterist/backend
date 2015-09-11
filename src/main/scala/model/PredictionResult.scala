@@ -5,6 +5,13 @@ import spray.json.DefaultJsonProtocol
 
 import scala.annotation.meta.field
 
+/**
+ *
+ * @param processingId The id of the processing result
+ * @param status The processing status as string
+ * @param message A human readable text message
+ * @param highscore A Highscore indicator (double) between 0 and 1
+ */
 @ApiModel(description = "The prediction result")
 case class PredictionResult (
                  @(ApiModelProperty @field)(value = "unique identifier for the prediction")
@@ -19,6 +26,7 @@ case class PredictionResult (
                  @(ApiModelProperty @field)(value = "the predicted highscore")
                  highscore: Option[Double] = None)
 
+/** Companion object used for constants and JsonFormat */
 object PredictionResult extends DefaultJsonProtocol {
 
   final val ENQUEUED = "ENQUEUED"

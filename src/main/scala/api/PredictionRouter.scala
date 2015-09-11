@@ -20,7 +20,7 @@ import scala.concurrent.ExecutionContext.Implicits.global
 trait PredictionRouter extends HttpService with PredictionRouterDoc {
   self: Authenticator =>
 
-  /** [[PredictionService]] instance for ML operations and queue */
+  /** [[service.PredictionService]] instance for ML operations and queue */
   val predictionService: PredictionService
 
   /** Holds exposed routes */
@@ -77,6 +77,7 @@ trait PredictionRouter extends HttpService with PredictionRouterDoc {
 )
 trait PredictionRouterDoc {
 
+  /** API route to enqueue a new prediction */
   @Path("/enqueue")
   @ApiOperation(
     value = "Enqueue a new tweet prediction",
@@ -100,6 +101,7 @@ trait PredictionRouterDoc {
   ))
   def predictionEnqueue: Route
 
+  /** API route to check the status / get the result of an existing prediction */
   @Path("/status/{processingId}")
   @ApiOperation(
     value = "Get prediction status / result",
