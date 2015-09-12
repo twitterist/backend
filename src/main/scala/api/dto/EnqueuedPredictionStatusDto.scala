@@ -13,7 +13,7 @@ import scala.annotation.meta.field
 @ApiModel(description = "Prediction enqueue for potential tweets")
 case class EnqueuedPredictionStatusDto(
   @(ApiModelProperty@field)(required = true, value = "The id of the enqueued tweet")
-  processingId: Int,
+  processingId: String,
 
   @(ApiModelProperty@field)(required = true, value = "The url to call to get status / result of the tweet")
   statusUrl: String

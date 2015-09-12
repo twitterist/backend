@@ -3,6 +3,7 @@ import akka.io.IO
 import akka.pattern.ask
 import akka.util.Timeout
 import api.ApiRouterActor
+import com.typesafe.config.{ConfigFactory, Config}
 import service.{PredictionService, UserService}
 import spray.can.Http
 import utils.Config._
@@ -12,8 +13,10 @@ import scala.concurrent.duration._
 /** Main application class */
 object Application extends App {
 
+  val conf: Config = ConfigFactory.load()
+
   /** Main actor system instance */
-  implicit val system = ActorSystem(app.systemName)
+  implicit val system = ActorSystem(app.systemName, conf)
 
   /** Main actor instance configured as spray router ([[api.ApiRouterActor]]) */
   val apiRouterActor: ActorRef = system.actorOf(Props(

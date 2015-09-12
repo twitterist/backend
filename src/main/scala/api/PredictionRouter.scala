@@ -49,7 +49,7 @@ trait PredictionRouter extends HttpService with PredictionRouterDoc {
 
   /** @inheritdoc */
   override def predictionResult: Route = pathPrefix("prediction") {
-    path("status" / IntNumber) { processingId =>
+    path("status" / Rest) { processingId =>
       get {
         authenticate(basicUserAuthenticator) { authInfo =>
           respondWithMediaType(`application/json`) {

@@ -15,7 +15,7 @@ import scala.annotation.meta.field
 @ApiModel(description = "The prediction result")
 case class PredictionResult (
                  @(ApiModelProperty @field)(value = "unique identifier for the prediction")
-                 processingId: Int,
+                 processingId: String,
 
                  @(ApiModelProperty @field)(value = "returns the status of the prediction [ENQUEUED, RUNNING, FINISHED, ERROR]")
                  status: String = PredictionResult.defaultStatus,
