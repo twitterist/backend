@@ -4,6 +4,8 @@ scalaVersion  := "2.11.6"
 
 scalacOptions := Seq("-unchecked", "-deprecation", "-encoding", "utf8")
 
+resolvers += "amateras-repo" at "http://amateras.sourceforge.jp/mvn/"
+
 libraryDependencies ++= {
   val akkaVersion = "2.3.6"
   val sprayVersion = "1.3.2"
@@ -26,7 +28,8 @@ libraryDependencies ++= {
     "org.webjars"          %  "swagger-ui"     % "2.0.12",
     "com.github.t3hnar"   %%  "scala-bcrypt"   % "2.4",
     "org.mindrot"          %  "jbcrypt"        % "0.3m",
-    "ch.qos.logback" % "logback-classic" % "1.1.3"
+    "ch.qos.logback" % "logback-classic" % "1.1.3",
+    "jp.sf.amateras.solr.scala" %% "solr-scala-client" % "0.0.12"
   )
 }
 

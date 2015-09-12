@@ -22,6 +22,15 @@ To use the project in production, use the dist command to create production arti
 ./activator dist
 ```
 
+Development
+-----------
+
+Start the Solr server (used to persist predictions):
+
+```
+./server/solr/bin/solr start -f -p 8983
+```
+
 Tests
 -----
 

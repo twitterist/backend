@@ -23,11 +23,11 @@ trait Authenticator {
       userPass.fold[Future[Option[AuthInfo]]] {
         Future.successful(None)
       } {
-        userPass =>
-          // TODO Better take a look at Scalaz OptionT http://underscore.io/blog/posts/2013/12/20/scalaz-monad-transformers.html#fnref:scalaz-contrib
-          userService.get(userPass.user).map(_.map {
-            case tup: (User, UserPassword) if tup._2.passwordMatches(userPass.pass) => AuthInfo(tup._1)
-          })
+        userPass => Future {
+          Some(AuthInfo("username"))
+        }
+          //TODO auth
+
       }
     }
 

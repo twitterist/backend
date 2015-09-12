@@ -4,7 +4,7 @@ import javax.ws.rs.Path
 
 import api.dto.{EnqueuedPredictionStatusDto, PredictionDto}
 import com.wordnik.swagger.annotations._
-import model.{PredictionResult, User}
+import model.{Prediction, User}
 import service.{PredictionService, UserService}
 import spray.http.MediaTypes._
 import spray.http.StatusCodes._
@@ -106,7 +106,7 @@ trait PredictionRouterDoc {
   @ApiOperation(
     value = "Get prediction status / result",
     httpMethod = "GET",
-    response = classOf[PredictionResult]
+    response = classOf[Prediction]
   )
   @ApiImplicitParams(Array(
     new ApiImplicitParam(

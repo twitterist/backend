@@ -1,0 +1,35 @@
+2015-09-12 10:21:46.435 INFO  (main) [   ] o.e.j.u.log Logging initialized @389ms
+2015-09-12 10:21:46.651 INFO  (main) [   ] o.e.j.s.Server jetty-9.2.11.v20150529
+2015-09-12 10:21:46.667 WARN  (main) [   ] o.e.j.s.h.RequestLogHandler !RequestLog
+2015-09-12 10:21:46.669 INFO  (main) [   ] o.e.j.d.p.ScanningAppProvider Deployment monitor [file:/Users/frank/git/backend/contrib/solr/server/contexts/] at interval 0
+2015-09-12 10:21:47.260 INFO  (main) [   ] o.e.j.w.StandardDescriptorProcessor NO JSP Support for /solr, did not find org.apache.jasper.servlet.JspServlet
+2015-09-12 10:21:47.270 WARN  (main) [   ] o.e.j.s.SecurityHandler ServletContext@o.e.j.w.WebAppContext@31a5c39e{/solr,file:/Users/frank/git/backend/contrib/solr/server/solr-webapp/webapp/,STARTING}{/Users/frank/git/backend/contrib/solr/server/solr-webapp/webapp} has uncovered http methods for path: /
+2015-09-12 10:21:47.276 INFO  (main) [   ] o.a.s.s.SolrDispatchFilter SolrDispatchFilter.init(): WebAppClassLoader=422250493@192b07fd
+2015-09-12 10:21:47.289 INFO  (main) [   ] o.a.s.c.SolrResourceLoader JNDI not configured for solr (NoInitialContextEx)
+2015-09-12 10:21:47.289 INFO  (main) [   ] o.a.s.c.SolrResourceLoader using system property solr.solr.home: /Users/frank/git/backend/contrib/solr/server/solr
+2015-09-12 10:21:47.291 INFO  (main) [   ] o.a.s.c.SolrResourceLoader new SolrResourceLoader for directory: '/Users/frank/git/backend/contrib/solr/server/solr/'
+2015-09-12 10:21:47.419 INFO  (main) [   ] o.a.s.c.SolrXmlConfig Loading container configuration from /Users/frank/git/backend/contrib/solr/server/solr/solr.xml
+2015-09-12 10:21:47.485 INFO  (main) [   ] o.a.s.c.CoresLocator Config-defined core root directory: /Users/frank/git/backend/contrib/solr/server/solr
+2015-09-12 10:21:47.510 INFO  (main) [   ] o.a.s.c.CoreContainer New CoreContainer 328827614
+2015-09-12 10:21:47.510 INFO  (main) [   ] o.a.s.c.CoreContainer Loading cores into CoreContainer [instanceDir=/Users/frank/git/backend/contrib/solr/server/solr/]
+2015-09-12 10:21:47.510 INFO  (main) [   ] o.a.s.c.CoreContainer loading shared library: /Users/frank/git/backend/contrib/solr/server/solr/lib
+2015-09-12 10:21:47.510 WARN  (main) [   ] o.a.s.c.SolrResourceLoader Can't find (or read) directory to add to classloader: lib (resolved as: /Users/frank/git/backend/contrib/solr/server/solr/lib).
+2015-09-12 10:21:47.526 INFO  (main) [   ] o.a.s.h.c.HttpShardHandlerFactory created with socketTimeout : 600000,connTimeout : 60000,maxConnectionsPerHost : 20,maxConnections : 10000,corePoolSize : 0,maximumPoolSize : 2147483647,maxThreadIdleTime : 5,sizeOfQueue : -1,fairnessPolicy : false,useRetries : false,
+2015-09-12 10:21:47.668 INFO  (main) [   ] o.a.s.u.UpdateShardHandler Creating UpdateShardHandler HTTP client with params: socketTimeout=600000&connTimeout=60000&retry=true
+2015-09-12 10:21:47.671 INFO  (main) [   ] o.a.s.l.LogWatcher SLF4J impl is org.slf4j.impl.Log4jLoggerFactory
+2015-09-12 10:21:47.671 INFO  (main) [   ] o.a.s.l.LogWatcher Registering Log Listener [Log4j (org.slf4j.impl.Log4jLoggerFactory)]
+2015-09-12 10:21:47.673 INFO  (main) [   ] o.a.s.c.CoreContainer Security conf doesn't exist. Skipping setup for authorization module.
+2015-09-12 10:21:47.673 INFO  (main) [   ] o.a.s.c.CoreContainer No authentication plugin used.
+2015-09-12 10:21:47.706 INFO  (main) [   ] o.a.s.c.CoresLocator Looking for core definitions underneath /Users/frank/git/backend/contrib/solr/server/solr
+2015-09-12 10:21:47.710 INFO  (main) [   ] o.a.s.c.CoresLocator Found 0 core definitions
+2015-09-12 10:21:47.713 INFO  (main) [   ] o.a.s.s.SolrDispatchFilter user.dir=/Users/frank/git/backend/contrib/solr/server
+2015-09-12 10:21:47.713 INFO  (main) [   ] o.a.s.s.SolrDispatchFilter SolrDispatchFilter.init() done
+2015-09-12 10:21:47.724 INFO  (main) [   ] o.e.j.s.h.ContextHandler Started o.e.j.w.WebAppContext@31a5c39e{/solr,file:/Users/frank/git/backend/contrib/solr/server/solr-webapp/webapp/,AVAILABLE}{/Users/frank/git/backend/contrib/solr/server/solr-webapp/webapp}
+2015-09-12 10:21:47.753 INFO  (main) [   ] o.e.j.s.ServerConnector Started ServerConnector@6b3a3fc1{HTTP/1.1}{0.0.0.0:8983}
+2015-09-12 10:21:47.753 INFO  (main) [   ] o.e.j.s.Server Started @1710ms
+2015-09-12 10:22:05.012 INFO  (qtp665576141-21) [   ] o.a.s.s.SolrDispatchFilter [admin] webapp=null path=/admin/cores params={indexInfo=false&wt=json&_=1442053324956} status=0 QTime=49 
+2015-09-12 10:22:05.086 INFO  (qtp665576141-17) [   ] o.a.s.s.SolrDispatchFilter [admin] webapp=null path=/admin/info/system params={wt=json&_=1442053325045} status=0 QTime=36 
+2015-09-12 10:22:11.661 INFO  (qtp665576141-13) [   ] o.a.s.s.SolrDispatchFilter [admin] webapp=null path=/admin/cores params={wt=json&_=1442053331648} status=0 QTime=0 
+2015-09-12 10:24:50.931 INFO  (ShutdownMonitor) [   ] o.e.j.s.ServerConnector Stopped ServerConnector@6b3a3fc1{HTTP/1.1}{0.0.0.0:8983}
+2015-09-12 10:24:50.932 INFO  (ShutdownMonitor) [   ] o.a.s.c.CoreContainer Shutting down CoreContainer instance=328827614
+2015-09-12 10:24:50.938 INFO  (ShutdownMonitor) [   ] o.e.j.s.h.ContextHandler Stopped o.e.j.w.WebAppContext@31a5c39e{/solr,file:/Users/frank/git/backend/contrib/solr/server/solr-webapp/webapp/,UNAVAILABLE}{/Users/frank/git/backend/contrib/solr/server/solr-webapp/webapp}

@@ -3,9 +3,10 @@ package service
 import java.util.UUID
 
 import api.dto.{EnqueuedPredictionStatusDto, PredictionDto}
-import model.PredictionResult
+import model.Prediction
 import scala.concurrent.Future
 import scala.concurrent.ExecutionContext.Implicits.global
+import jp.sf.amateras.solr.scala._
 
 /** Service to schedule and process predictions against the ML stack */
 trait PredictionService {
@@ -14,18 +15,21 @@ trait PredictionService {
   def enqueue(dto: PredictionDto, requestUri: String): Future[Option[EnqueuedPredictionStatusDto]]
 
   /** Returns the prediction status / result of an enqueued tweet by processingId */
-  def status(processingId: String): Future[Option[PredictionResult]]
+  def status(processingId: String): Future[Option[Prediction]]
 
 }
 
 object PredictionService extends PredictionService {
+
+  val solrClient = new SolrClient("http://localhost:8983/solr/twitterist")
 
   /** @inheritdoc*/
   override def enqueue(dto: PredictionDto, requestUri: String): Future[Option[EnqueuedPredictionStatusDto]] = Future {
 
     val processingId = UUID.randomUUID().toString
 
-    //TODO implement prediction
+    solrClient.add(Prediction(processingId, dto.tweet, dto.author))
+    .commit()
 
     Some(
       EnqueuedPredictionStatusDto(
@@ -35,10 +39,10 @@ object PredictionService extends PredictionService {
     )
   }
 
-  override def status(processingId: String): Future[Option[PredictionResult]] = Future {
+  override def status(processingId: String): Future[Option[Prediction]] = Future {
 
     //TODO implement result check
 
-    Some(PredictionResult(processingId, PredictionResult.ENQUEUED, Some("Prediction successful"), Some(0.6256)))
+    Some(Prediction(processingId, "tweet", "author", Prediction.ENQUEUED, Some("Prediction successful"), Some(0.6256)))
   }
 }
