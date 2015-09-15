@@ -18,8 +18,8 @@ libraryDependencies ++= {
     "com.typesafe.akka"   %%  "akka-testkit"   % akkaVersion   % "test",
     "org.specs2"          %%  "specs2-core"    % "2.3.11"      % "test",
     "com.typesafe.slick"  %%  "slick"          % "3.0.0",
-    // "org.slf4j"            % "slf4j-nop"       % "1.7.7",
-    // "org.slf4j"            % "slf4j-api"       % "1.7.7",
+    "org.slf4j"            % "slf4j-nop"       % "1.7.7",
+    "org.slf4j"            % "slf4j-api"       % "1.7.7",
     "org.scalatest"        %  "scalatest_2.11" % "2.2.1" % "test",
     "com.typesafe"         %  "config"         % "1.2.1",
     "postgresql"           %  "postgresql"     % "9.1-901.jdbc4",
@@ -28,7 +28,7 @@ libraryDependencies ++= {
     "org.webjars"          %  "swagger-ui"     % "2.0.12",
     "com.github.t3hnar"   %%  "scala-bcrypt"   % "2.4",
     "org.mindrot"          %  "jbcrypt"        % "0.3m",
-    "ch.qos.logback" % "logback-classic" % "1.1.3",
+    // "ch.qos.logback" % "logback-classic" % "1.1.3",
     "jp.sf.amateras.solr.scala" %% "solr-scala-client" % "0.0.12"
   )
 }

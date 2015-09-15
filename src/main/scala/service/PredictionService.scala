@@ -3,6 +3,7 @@ package service
 import java.util.UUID
 
 import api.dto.{EnqueuedPredictionStatusDto, PredictionDto}
+import jp.sf.amateras.solr.scala.sample.Param
 import model.Prediction
 import scala.concurrent.Future
 import scala.concurrent.ExecutionContext.Implicits.global
@@ -23,13 +24,13 @@ object PredictionService extends PredictionService {
 
   val solrClient = new SolrClient("http://localhost:8983/solr/twitterist")
 
-  /** @inheritdoc*/
+  /** @inheritdoc */
   override def enqueue(dto: PredictionDto, requestUri: String): Future[Option[EnqueuedPredictionStatusDto]] = Future {
 
     val processingId = UUID.randomUUID().toString
 
     solrClient.add(Prediction(processingId, dto.tweet, dto.author))
-    .commit()
+      .commit()
 
     Some(
       EnqueuedPredictionStatusDto(
@@ -39,10 +40,16 @@ object PredictionService extends PredictionService {
     )
   }
 
+  /** @inheritdoc */
   override def status(processingId: String): Future[Option[Prediction]] = Future {
-
-    //TODO implement result check
-
-    Some(Prediction(processingId, "tweet", "author", Prediction.ENQUEUED, Some("Prediction successful"), Some(0.6256)))
+    solrClient
+      .query("id:%id%")
+      .getResultAsMap(Map("id" -> processingId))
+      .documents
+      .head match {
+      case res: Map[String, Any] => Prediction.byMap(res)
+      case _ => None
+    }
   }
+
 }

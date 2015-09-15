@@ -15,5 +15,5 @@ test-output/
 log/*
 !log/.gitkeep
 
-server/solr/server/solr/twitterist/data/*
-server/solr/server/logs/*
+/server/solr/server/solr/twitterist/data/*
+/server/solr/server/logs/*
