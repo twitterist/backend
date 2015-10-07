@@ -1,5 +1,5 @@
-Twitterist.org - Backend
-========================
+@deprecated Twitterist.org - Backend
+====================================
 
 This is the backend (API) part of the [twitterist](twitterist.org) app. I provides a JSON API to load training sets 
 and run predictions.
